@@ -1,3 +1,3 @@
 variable "bucket_name" {
-  default = "kledson-basso-00002"
+  default = "aws-s3-kledsonbasso"
 }
