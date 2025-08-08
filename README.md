@@ -14,7 +14,7 @@ Para hospedar um site estático no Amazon S3, configure um bucket do Amazon S3 p
 
 ## Arquitetura alvo
 
-![Notifier](/images/target_architecture.png)
+![Notifier](images/target_architecture.png)
 
 <br>
 
@@ -45,7 +45,7 @@ Para hospedar um site estático no Amazon S3, configure um bucket do Amazon S3 p
 
 8. Marque a opção **Compreendo os efeitos dessas alterações em meus objetos e buckets** e clique em **Salvar alterações**. 
 
-9. Faça download para sua máquina dos arquivos [index.html](https://github.com/kledsonhugo/app-static-site-s3/blob/main/app/index.html) e [error.html](https://github.com/kledsonhugo/app-static-site-s3/blob/main/app/error.html).
+9. Faça download para sua máquina dos arquivos [index.html](https://github.com/kledsonhugo/aws-s3/blob/main/app/index.html) e [error.html](https://github.com/kledsonhugo/aws-s3/blob/main/app/error.html).
 
    > **ATENÇÃO !!!** Ao clicar no link aparecerá uma tela com diversas opções. Entre as opções terá o ícone para fazer download do arquivo para sua máquina.
  

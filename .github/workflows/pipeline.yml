@@ -3,14 +3,14 @@ name: Terraform Pipeline
 on:
   push:
     branches:
-    - pipeline
+    - main
 
 env:
-  TERRAFORM_VERSION: 1.8.5
+  TERRAFORM_VERSION: 1.12.2
 
 jobs:
 
-  on-aws:
+  tf-aws:
     name: AWS provider
     runs-on: ubuntu-latest
  
@@ -21,31 +21,27 @@ jobs:
       with:
         terraform_version: $TERRAFORM_VERSION
 
-    - name: Step 02 - Terraform Version
-      run : terraform --version
-
-    - name: Step 03 - CheckOut GitHub Repo
+    - name: Step 02 - CheckOut GitHub Repo
       uses: actions/checkout@v4
 
-    - name: Step 04 - Authenticate with AWS
+    - name: Step 03 - Authenticate with AWS
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id    : ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region           : us-east-1
 
-    - name: Step 05 - Terraform Init
+    - name: Step 04 - Terraform Init
       run : terraform -chdir=./terraform init
 
-    - name: Step 06 - Terraform Validate
+    - name: Step 05 - Terraform Validate
       run : terraform -chdir=./terraform validate
 
-    - name: Step 07 - Terraform Plan
-      # run : terraform -chdir=./terraform plan -out tfplan
-      run : terraform -chdir=./terraform plan -destroy -out tfplan
+    - name: Step 06 - Terraform Plan
+      run : terraform -chdir=./terraform plan -out tfplan
 
-    - name: Step 08 - Terraform Apply
+    - name: Step 07 - Terraform Apply
       run : terraform -chdir=./terraform apply tfplan
 
-    - name: Step 09 - Terraform Show
+    - name: Step 08 - Terraform Show
       run : terraform -chdir=./terraform show
