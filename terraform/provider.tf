@@ -11,10 +11,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "aws-s3-tfstate-kledsonbasso"
-    key            = "tfstate"
-    dynamodb_table = "aws-s3-tfstate"
-    region         = "us-east-1"
+    bucket       = "aws-s3-tfstate-kledsonbasso"
+    key          = "tfstate"
+    region       = "us-east-1"
+    use_lockfile = true
   }
 
 }
